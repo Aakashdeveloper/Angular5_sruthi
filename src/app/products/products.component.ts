@@ -2,11 +2,16 @@ import {Component} from '@angular/core';
 
 @Component({
     selector:'prod-comp',
-    templateUrl:'./products.component.html'
+    templateUrl:'./products.component.html',
+    //styles:['thead{color:green}','h3{color:purple}']
+    styleUrls:['./product.component.css']
 })
 
 export class ProductComponent{
     title:string="*******Product List********";
+    showTable=true;
+    showImage=false;
+    filterProduct="Leaf"
     products:any[]=[
          {
             "productId": 1,
@@ -30,6 +35,10 @@ export class ProductComponent{
         }
         
     ]
+
+    toggleImage():void{
+       this.showImage = !this.showImage
+    }
 }
 
 
