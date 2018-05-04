@@ -33,13 +33,13 @@
                 </thead>
                 {{showImage}}
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products | ProductFilter:filterProduct">
                         <td>
                             <img [src]="product.imageUrl" 
                                     *ngIf="showImage"/>
                         </td>
-                        <td>{{product.productName | myPipe}}</td>
-                        <td>{{product.productCode | lowercase}}</td>
+                        <td>{{product.productName | myPipe:"upper"}}</td>
+                        <td>{{product.productCode | myPipe:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency:"EUR"}}</td>
                         <td>{{product.starRating}}</td>

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {IProduct} from './product.model'
 
 @Component({
     selector:'prod-comp',
@@ -12,7 +13,7 @@ export class ProductComponent{
     showTable=true;
     showImage=false;
     filterProduct="Leaf"
-    products:any[]=[
+    products:IProduct[]=[
          {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -32,6 +33,15 @@ export class ProductComponent{
             "price": 32.99,
             "starRating": 4.2,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+        },{
+            "productId": 1,
+            "productName": "Leaf Rake",
+            "productCode": "GDN-0011",
+            "releaseDate": "March 19, 2016",
+            "description": "Leaf rake with 48-inch wooden handle.",
+            "price": 19.95,
+            "starRating": 3.2,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
         }
         
     ]
