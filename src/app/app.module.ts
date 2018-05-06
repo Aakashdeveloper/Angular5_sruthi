@@ -7,6 +7,7 @@ import { CarComponent } from "./car.component";
 import { ProductComponent } from "./products/products.component";
 import { ProductUpperPipe } from "./products/product-upper.pipe";
 import { ProductFilter } from "./products/product-filter.pipe";
+import { StarComponent } from "./shared/star.component";
 
 @NgModule({
     //We decl modules here
@@ -20,7 +21,8 @@ import { ProductFilter } from "./products/product-filter.pipe";
         CarComponent,
         ProductComponent,
         ProductUpperPipe,
-        ProductFilter
+        ProductFilter,
+        StarComponent
     ],
     //Conation only main component
     bootstrap:[

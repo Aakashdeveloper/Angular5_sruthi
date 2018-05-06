@@ -12,7 +12,7 @@ export class ProductComponent{
     title:string="*******Product List********";
     showTable=true;
     showImage=false;
-    filterProduct="Leaf"
+    filterProduct;
     products:IProduct[]=[
          {
             "productId": 1,
@@ -21,7 +21,7 @@ export class ProductComponent{
             "releaseDate": "March 19, 2016",
             "description": "Leaf rake with 48-inch wooden handle.",
             "price": 19.95,
-            "starRating": 3.2,
+            "starRating": 3.5,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
         },
         {
@@ -31,7 +31,7 @@ export class ProductComponent{
             "releaseDate": "March 18, 2016",
             "description": "15 gallon capacity rolling garden cart",
             "price": 32.99,
-            "starRating": 4.2,
+            "starRating": 4.7,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
         },{
             "productId": 1,
@@ -48,6 +48,10 @@ export class ProductComponent{
 
     toggleImage():void{
        this.showImage = !this.showImage
+    }
+
+    onDataRecive(message:string){
+        this.title="*******Product List********"+message
     }
 }
 

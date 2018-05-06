@@ -42,7 +42,12 @@
                         <td>{{product.productCode | myPipe:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency:"EUR"}}</td>
-                        <td>{{product.starRating}}</td>
+                        <td>
+                            <star-comp [rating]="product.starRating"
+                                (ratingClicked)="onDataRecive($event)">
+
+                            </star-comp>
+                        </td>
                     </tr>
                 </tbody>
             </table>
