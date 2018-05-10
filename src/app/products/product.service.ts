@@ -17,7 +17,6 @@ export class ProductService{
         return this._http.get(this._productUrl)
             .map((response:Response) => response.json())
             .catch(this.handleError)
-
     }
 
     private handleError(error:Response){

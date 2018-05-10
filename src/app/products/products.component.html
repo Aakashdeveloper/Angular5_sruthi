@@ -14,6 +14,7 @@
                 <h3>Filtered By:{{filterProduct}}</h3>
             </div>
         </div> 
+        {{errorMessage}}
         <div class="table-responsive">                    
             <table class="table" *ngIf="products && products.length">
                 <thead>
@@ -36,16 +37,17 @@
                     <tr *ngFor="let product of products | ProductFilter:filterProduct">
                         <td>
                             <img [src]="product.imageUrl" 
-                                    *ngIf="showImage"/>
+                                    *ngIf="showImage" [style.width.px]="imageWidth"/>
                         </td>
                         <td>{{product.productName | myPipe:"upper"}}</td>
                         <td>{{product.productCode | myPipe:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
-                        <td>{{product.price | currency:"EUR"}}</td>
+                        <td [ngStyle]="{'background-color':product.price>30?'red':'green'}">
+                            {{product.price | currency:"EUR"}}
+                        </td>
                         <td>
                             <star-comp [rating]="product.starRating"
                                 (ratingClicked)="onDataRecive($event)">
-
                             </star-comp>
                         </td>
                     </tr>

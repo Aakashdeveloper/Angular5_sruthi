@@ -13,7 +13,9 @@ export class ProductComponent{
     title:string="*******Product List********";
     showTable=true;
     showImage=false;
+    imageWidth=50;
     filterProduct;
+    errorMessage;
     products:IProduct[]
 
     constructor(private _productService:ProductService){}
@@ -23,7 +25,9 @@ export class ProductComponent{
     }
 
     ngOnInit():void{
-        this.products = this._productService.getProducts()
+        this._productService.getProducts()
+            .subscribe((data) => this.products = data,
+                        (err)=> this.errorMessage = err)
     }
 
     onDataRecive(message:string){
@@ -33,7 +37,7 @@ export class ProductComponent{
 
 
 /*
-
+MEAN
 string = """
 number = 1
 boolean = true/false
