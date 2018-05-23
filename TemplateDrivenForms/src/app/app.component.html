@@ -1,0 +1,43 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Angular forms
+    </div>
+    <div class="panel-body">
+        <form #form="ngForm" novalidate>
+            <div class="form-group">
+                <label for="firstName">FirstName</label>
+                <input type="text" class="form-control" placeholder="FirstName"
+                id="firstName"  name="firstName" ngModel/>
+            </div>
+             <div class="form-group">
+                <label for="lastName">LastName</label>
+                <input type="text" class="form-control" placeholder="lastName"
+                id="lastName" name="lastName" ngModel/>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="Full_Time" ngModel>FullTimee
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender"  value="male" ngModel>Male
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="female" ngModel>Female
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Code Lang</label>
+                <select class="form-control" ngModel name="codeLang">
+                    <option>Angular</option>
+                    <option>React</option>
+                </select>
+            </div>
+            <button class="btn btn-success">Submit</button>
+    </form>
+    </div>
+</div>
