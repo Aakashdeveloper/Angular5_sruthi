@@ -7,9 +7,9 @@ import {Component} from '@angular/core';
                   <div class="container-fluid">
                     <a class="navbar-brand">Angular5</a>
                     <ul class="nav navbar-nav">
-                      <li><a>Home</a></li>
-                      <li><a>Order</a></li>
-                      <li><a>Product</a></li>
+                      <li><a [routerLink]="['/home']">Home</a></li>
+                      <li><a [routerLink]="['/orders']">Order</a></li>
+                      <li><a [routerLink]="['/products']">Product</a></li>
                     </ul>
                   </div>
                 </nav>

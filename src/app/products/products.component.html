@@ -39,7 +39,12 @@
                             <img [src]="product.imageUrl" 
                                     *ngIf="showImage" [style.width.px]="imageWidth"/>
                         </td>
-                        <td>{{product.productName | myPipe:"upper"}}</td>
+                        <td>
+                            <a [routerLink]="['/products', product.productId]"
+                                [queryParams]="{name:product.productName,desc:product.description,img:product.imageUrl}">
+                                {{product.productName | myPipe:"upper"}}
+                            </a>
+                        </td>
                         <td>{{product.productCode | myPipe:"lower"}}</td>
                         <td>{{product.releaseDate}}</td>
                         <td [ngStyle]="{'background-color':product.price>30?'red':'green'}">
@@ -54,6 +59,6 @@
                 </tbody>
             </table>
         </div>
-        
+
     </div>
 </div>
