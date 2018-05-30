@@ -5,39 +5,59 @@
     </div>
     <div class="panel-body">
         <form #form="ngForm" novalidate>
-            <div class="form-group">
-                <label for="firstName">FirstName</label>
+            <div class="form-group" [class.has-error]="firstName.invalid">
+                <label class="control-label" for="firstName">FirstName</label>
                 <input type="text" class="form-control" placeholder="FirstName"
-                id="firstName"  name="firstName" ngModel/>
+                id="firstName"  name="firstName" [ngModel]="model.firstName" required
+                (ngModelChange)="firstToUpper($event)"  #firstName="ngModel"/>
+                <div class="alert alert-danger" *ngIf="firstName.invalid">
+                    FirstName is Required
+                </div>
+                <h3>Classes</h3>
+                <h4>{{firstName.invalid}}</h4>
             </div>
              <div class="form-group">
                 <label for="lastName">LastName</label>
-                <input type="text" class="form-control" placeholder="lastName"
-                id="lastName" name="lastName" ngModel/>
+                <input type="text" class="form-control" placeholder="lastName" minlength="3"
+                id="lastName" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"/>
+                <div class="alert alert-danger" *ngIf="lastName.invalid">
+                    Length should be gearter than 3
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" placeholder="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                id="email" name="email" [(ngModel)]="model.email" #email="ngModel"/>
+                <div class="alert alert-danger" *ngIf="email.invalid">
+                    Please enter valid value
+                </div>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="Full_Time" ngModel>FullTimee
+                    <input type="checkbox" name="Full_Time" [(ngModel)]="Full_Time">FullTimee
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="gender"  value="male" ngModel>Male
+                    <input type="radio" name="gender"  value="male" [(ngModel)]="model.gender">Male
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="gender" value="female" ngModel>Female
+                    <input type="radio" name="gender" value="female" [(ngModel)]="model.gender">Female
                 </label>
             </div>
-            <div class="form-group">
-                <label>Code Lang</label>
-                <select class="form-control" ngModel name="codeLang">
-                    <option>Angular</option>
-                    <option>React</option>
+            <div class="form-group"><label>Code Lang</label>
+                <select class="form-control" [(ngModel)]="model.codeLang" name="codeLang">
+                    <option *ngFor="let lang of langugages">
+                        {{lang}}
+                    </option>
+                    
                 </select>
             </div>
             <button class="btn btn-success">Submit</button>
     </form>
     </div>
+<h4>{{model|json}}</h4>
+<h4>{{form.value|json}}</h4>
 </div>
