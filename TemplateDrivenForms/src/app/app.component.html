@@ -4,7 +4,7 @@
         Angular forms
     </div>
     <div class="panel-body">
-        <form #form="ngForm" novalidate>
+        <form #form="ngForm" novalidate (submit)="submitForm(form)">
             <div class="form-group" [class.has-error]="firstName.invalid">
                 <label class="control-label" for="firstName">FirstName</label>
                 <input type="text" class="form-control" placeholder="FirstName"
@@ -55,7 +55,7 @@
                     
                 </select>
             </div>
-            <button class="btn btn-success">Submit</button>
+            <button  type="submit" class="btn btn-success">Submit</button>
     </form>
     </div>
 <h4>{{model|json}}</h4>

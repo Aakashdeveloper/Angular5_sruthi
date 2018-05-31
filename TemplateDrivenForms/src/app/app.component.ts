@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {Employee} from '../models/employee.model'
+import {Employee} from '../models/employee.model';
+import {FormPoster} from '../services/form-poster.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector:'app-form',
@@ -10,8 +12,9 @@ export class AppComponent{
  
   langugages = ["NodeJs","AngulaeJs","ReactJs"]
 
-  model = new Employee('John','methew',true,'male','NodeJs')
+  model = new Employee('John','methew','a@a.com',true,'male','NodeJs')
 
+  constructor(private formPoster:FormPoster){}
 
     firstToUpper(value:string):void{
       if(value.length>0){
@@ -20,7 +23,17 @@ export class AppComponent{
         this.model.firstName = value
       }
     }
+
+      submitForm(form:NgForm){
+        this.formPoster.postEmployeeForm(this.model)
+          .subscribe(
+            (data)=> console.log('success',data),
+            (err) => console.log('error',err)
+          )
+      }
   }
+
+
 
 
   /*
